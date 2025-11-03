@@ -22,8 +22,8 @@ body {
 }
 
 #banner {
-    background-image: url(/imagenes/aula.jpg);
-    object-fit: cover;
+    background-image: url(./imagenes/aula.jpg);
+    /* object-fit: cover; */
     position: fixed;
     top: 0;
     left: 0;
