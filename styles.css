@@ -21,7 +21,8 @@ body {
     font-family: 'MiFuente', sans-serif;
 }
 
-.banner img {
+#banner {
+    background-image: url(/imagenes/ninos-en-el-aula-tomando-clases.jpg);
     object-fit: cover;
     position: fixed;
     top: 0;
