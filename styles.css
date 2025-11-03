@@ -22,7 +22,7 @@ body {
 }
 
 #banner {
-    background-image: url(/imagenes/ninos-en-el-aula-tomando-clases.jpg);
+    background-image: url(/imagenes/aula.jpg);
     object-fit: cover;
     position: fixed;
     top: 0;
@@ -31,7 +31,7 @@ body {
     height: 100%;
     background-size: cover;
     background-position: center;
-    z-index: -2;
+    /* z-index: -2; */
 }
 
 .title_container {
