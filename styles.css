@@ -10,6 +10,7 @@
     --color-celeste: #c3e5f3;
     --color-amarillo: #f9eb92;
     --color-rosa: #f7c4cd;
+    --color-principal: #0b5433;
 }
 
 html,
@@ -17,13 +18,13 @@ body {
     margin: 0;
     padding: 0;
     height: 100%;
-    overflow: hidden;
+    /* overflow: hidden; */
     font-family: 'MiFuente', sans-serif;
+    background-color: var(--color-principal);
 }
 
 #banner {
     background-image: url(./imagenes/aula.jpg);
-    /* object-fit: cover; */
     position: fixed;
     top: 0;
     left: 0;
@@ -31,14 +32,13 @@ body {
     height: 100%;
     background-size: cover;
     background-position: center;
-    /* z-index: -2; */
 }
 
 .title_container {
     display: flex;
     flex-direction: column;
     position: absolute;
-    background-color: #0b5433;
+    background-color: var(--color-principal);
     color: white;
     border-radius: 0 10px 10px 0;
     padding: 5px;
@@ -100,4 +100,49 @@ a {
 
 ol li a:hover {
     color: var(--color-rosa);
+}
+
+/* ENSEÑANZA */
+
+.titulo-principal {
+    font-size: 5em;
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
+.info-ensenanza {
+    display: flex;
+}
+
+.contenedor-dibujo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.dibujo {
+    width: 70%;
+    margin: 10px 50px;
+}
+
+.nombre-dibujo {
+    margin: 0;
+    color: white;
+    font-size: 1.5em;
+}
+
+.contenedor-texto {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2em;
+}
+
+.texto {
+    margin: 0 25px;
 }
