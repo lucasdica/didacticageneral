@@ -1,0 +1,73 @@
+/* ===== Fuentes y variables (sin tocar) ===== */
+@font-face {
+    font-family: 'MiFuente';
+    src: url('../fuente/CFCrayons-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+    --color-naranja: #fde3cc;
+    --color-celeste: #c3e5f3;
+    --color-amarillo: #f9eb92;
+    --color-rosa: #f7c4cd;
+    --color-principal: #0b5433;
+}
+
+/* ===== Reset básico ===== */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'MiFuente', sans-serif;
+    background-color: var(--color-principal);
+}
+
+
+.titulo-principal {
+    font-size: 5em;
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
+.signo {
+    font-family: 'Arial Narrow', Arial, sans-serif;
+}
+
+.info-ensenanza {
+    display: flex;
+}
+
+.contenedor-dibujo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+}
+
+.dibujo {
+    width: 70%;
+    margin: 10px 50px;
+}
+
+.nombre-dibujo {
+    margin: 0;
+    color: white;
+    font-size: 1.5em;
+}
+
+.contenedor-texto {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2em;
+}
+
+.texto {
+    margin: 0 25px;
+}

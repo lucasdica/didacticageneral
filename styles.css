@@ -1,3 +1,4 @@
+/* ===== Fuentes y variables (sin tocar) ===== */
 @font-face {
     font-family: 'MiFuente';
     src: url('./fuente/CFCrayons-Regular.ttf') format('truetype');
@@ -5,7 +6,7 @@
     font-style: normal;
 }
 
-:root{
+:root {
     --color-naranja: #fde3cc;
     --color-celeste: #c3e5f3;
     --color-amarillo: #f9eb92;
@@ -13,16 +14,17 @@
     --color-principal: #0b5433;
 }
 
+/* ===== Reset básico ===== */
 html,
 body {
     margin: 0;
     padding: 0;
     height: 100%;
-    /* overflow: hidden; */
     font-family: 'MiFuente', sans-serif;
     background-color: var(--color-principal);
 }
 
+/* Banner fijo atrás (OK) */
 #banner {
     background-image: url(./imagenes/aula.jpg);
     position: fixed;
@@ -34,6 +36,7 @@ body {
     background-position: center;
 }
 
+/* Contenedor principal */
 .title_container {
     display: flex;
     flex-direction: column;
@@ -42,10 +45,12 @@ body {
     color: white;
     border-radius: 0 10px 10px 0;
     padding: 5px;
-    width: 45%;
+    width: 55%;
     height: 100vh;
     box-sizing: border-box;
-    overflow: hidden;
+    /* IMPORTANTE: cambia overflow:hidden a visible para que no corte contenido
+     Si querés controlar internamente el scroll de la lista, lo hacemos en .multi-column. */
+    overflow: visible;
     border: 15px solid #a27943;
     justify-content: center;
     align-items: center;
@@ -61,22 +66,77 @@ body {
     font-size: 2em;
 }
 
-ol {
+/* ========== Listas con columnas ========== */
+/* contadores base */
+.multi-column {
     counter-reset: item;
-    list-style-type: none;
+    /* contador principal */
+    list-style: none;
     padding-left: 20px;
+    margin: 35px 0 0 0;
+
+    /* columnas */
+    column-count: 2;
+    column-width: 260px;
+    /* ancho aproximado por columna */
+    column-gap: 40px;
+    column-fill: auto;
+
+    /* si querés controlar altura y permitir scroll interno (opcional):
+     max-height evita que la lista "estire" todo el contenedor; se puede ajustar */
+    max-height: 50vh;
+    /* ajustar si el header ocupa espacio */
+    overflow-y: auto;
+    /* scroll sólo dentro de la lista si supera la altura */
 }
 
-li {
-    margin: 10px;
-    font-size: 1.3em;
-}
 
-li:before {
-    content: counters(item, ".")". ";
+/* items principales: evitar que se corten entre columnas */
+.multi-column>li {
+    display: block;
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    -moz-column-break-inside: avoid;
+    padding: 6px 0;
     counter-increment: item;
+    font-size: 1.2rem;
 }
 
+/* numeración: 1. 2. 3. */
+.multi-column>li::before {
+    content: counters(item, ".") ". ";
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+/* ----- Sublistas ----- */
+/* NO usar column-span: all (eso provoca que la sublista ocupe todo el ancho
+   y empuje los siguientes elementos hacia abajo). En su lugar: */
+.sublist {
+    list-style: none;
+    margin: 6px 0 0 1.4rem;
+    padding-left: 0;
+
+    /* reseteamos el contador para crear numeración 1.1, 1.2, ... */
+    counter-reset: subitem;
+}
+
+/* items de sublista: tampoco se cortan */
+.sublist li {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    counter-increment: subitem;
+    font-size: 1.2rem;
+}
+
+/* numeración de sublista usando el contador del padre + subitem (1.1, 1.2) */
+.sublist li::before {
+    content: counters(item, ".") "." counter(subitem) ". ";
+    font-weight: 500;
+    margin-right: 6px;
+}
+
+/* Enlaces */
 a {
     text-decoration: none;
     color: white;
@@ -86,7 +146,7 @@ a {
     font-family: 'Arial Narrow', Arial, sans-serif;
 }
 
-.name1{
+.name1 {
     color: var(--color-naranja)
 }
 
@@ -102,47 +162,23 @@ ol li a:hover {
     color: var(--color-rosa);
 }
 
-/* ENSEÑANZA */
-
-.titulo-principal {
-    font-size: 5em;
-    color: white;
-    text-align: center;
-    margin: 0;
+/* Responsivo: menos columnas en pantallas chicas */
+@media (max-width: 900px) {
+    .multi-column {
+        column-width: 220px;
+    }
 }
 
-.info-ensenanza {
-    display: flex;
-}
+@media (max-width: 520px) {
+    .title_container {
+        width: 90%;
+        left: 0;
+    }
 
-.contenedor-dibujo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 40%;
-}
-
-.dibujo {
-    width: 70%;
-    margin: 10px 50px;
-}
-
-.nombre-dibujo {
-    margin: 0;
-    color: white;
-    font-size: 1.5em;
-}
-
-.contenedor-texto {
-    width: 60%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    font-size: 2em;
-}
-
-.texto {
-    margin: 0 25px;
+    .multi-column {
+        column-count: 1;
+        column-width: auto;
+        max-height: none;
+        overflow: visible;
+    }
 }
