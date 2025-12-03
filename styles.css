@@ -59,11 +59,19 @@ body {
 .title_container h1 {
     margin: 5px;
     font-size: 4em;
+    cursor: default;
 }
 
 .title_container p {
     margin-left: 5px;
     font-size: 2em;
+    cursor: default;
+}
+
+.titulos {
+    cursor: default;
+    color: var(--color-rosa);
+    font-weight: bold;
 }
 
 /* ========== Listas con columnas ========== */
