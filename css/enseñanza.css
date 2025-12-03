@@ -24,10 +24,9 @@ body {
     background-color: var(--color-principal);
 }
 
-
 .titulo-principal {
     font-size: 5em;
-    color: white;
+    color: var(--color-amarillo);
     text-align: center;
     margin: 0;
 }
@@ -37,35 +36,36 @@ body {
 }
 
 .info-ensenanza {
-    display: flex;
+    padding: 20px;
+    color: white;
 }
 
 .contenedor-dibujo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    float: left;
     width: 40%;
+    text-align: center;
+    margin-right: 25px;
+}
+
+.contenedor-texto h2 {
+    color: var(--color-rosa);
 }
 
 .dibujo {
     width: 70%;
-    margin: 10px 50px;
+    margin: 40px 0 0 0 ;
 }
 
 .nombre-dibujo {
-    margin: 0;
-    color: white;
+    margin-bottom: 40px;
+    color: var(--color-naranja);
     font-size: 1.5em;
 }
 
 .contenedor-texto {
-    width: 60%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     color: white;
-    font-size: 2em;
+    font-size: 1.4em;
+    display: block;
 }
 
 .texto {
