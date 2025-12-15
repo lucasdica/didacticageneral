@@ -32,18 +32,18 @@ body {
 /* ASIDE */
 
 aside {
-    position: fixed;              /* <-- Mantiene el aside fijo */
+    position: fixed;              
     top: 0;
     left: 0;
     width: 250px;
-    height: 100vh;                /* Ocupa toda la altura de la pantalla */
+    height: 100vh;                
     background-color: #a27943;
     padding: 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
                  'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border-right: 3px solid #805d2f;
-    box-sizing: border-box;       /* Evita que el padding altere el ancho total */
-    overflow-y: auto;             /* Si el menú es largo, permite scroll dentro del aside */
+    box-sizing: border-box;       
+    overflow-y: auto;            
 }
 
 h1 {
@@ -76,7 +76,7 @@ a:hover {
 main {
     flex: 1;
     padding: 20px;
-    margin-left: 250px;           /* <-- Espacio igual al ancho del aside */
+    margin-left: 250px;           
     box-sizing: border-box;
 }
 
@@ -101,4 +101,8 @@ span {
 
 .listas {
     font-size: 20px;
+}
+
+strong {
+    color: var(--color-rosa);
 }
